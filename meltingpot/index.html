@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melting Pot with Kim Paris — Freeform Portland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F6EEDC;
+    --ink:#231F1A;
+    --terracotta:#D9572C;
+    --teal:#1C7C72;
+    --mustard:#E8A93B;
+    --plum:#6E2F5B;
+    --line:rgba(35,31,26,0.16);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Space Mono', monospace;
+    line-height:1.5;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif;margin:0;letter-spacing:-0.01em;}
+  a{color:inherit;}
+  .wrap{max-width:980px;margin:0 auto;padding:0 24px;}
+  .tilebar{display:flex;height:10px;width:100%;}
+  .tilebar span{flex:1;}
+  .tilebar span:nth-child(6n+1){background:var(--terracotta);}
+  .tilebar span:nth-child(6n+2){background:var(--teal);}
+  .tilebar span:nth-child(6n+3){background:var(--mustard);}
+  .tilebar span:nth-child(6n+4){background:var(--plum);}
+  .tilebar span:nth-child(6n+5){background:var(--ink);}
+  .tilebar span:nth-child(6n){background:var(--cream);border:1px solid var(--line);}
+  header.hero{padding:72px 0 48px;position:relative;overflow:hidden;}
+  .eyebrow{font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:var(--terracotta);font-weight:700;margin-bottom:14px;}
+  .hero h1{font-size:clamp(40px, 7vw, 76px);font-weight:800;line-height:0.96;}
+  .hero h1 em{font-style:italic;font-weight:500;color:var(--teal);}
+  .hero .sub{margin-top:22px;max-width:560px;font-size:16px;color:rgba(35,31,26,0.78);}
+  .schedule-pill{display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:10px 18px;background:var(--ink);color:var(--cream);border-radius:999px;font-size:13px;letter-spacing:0.03em;}
+  .schedule-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--mustard);animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  @media (prefers-reduced-motion: reduce){.schedule-pill .dot{animation:none;}}
+  .section{padding:56px 0;}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:28px;border-bottom:2px solid var(--ink);padding-bottom:14px;}
+  .section-head h2{font-size:28px;font-weight:600;}
+  .section-head .count{font-size:13px;color:var(--terracotta);}
+  .player-card{background:var(--ink);color:var(--cream);border-radius:18px;padding:22px;}
+  .player-card .label{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--mustard);margin-bottom:10px;}
+  .player-card iframe{width:100%;height:120px;border:0;border-radius:8px;}
+  .episode{display:grid;grid-template-columns:90px 1fr;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);cursor:pointer;}
+  .episode:first-child{padding-top:0;}
+  .episode .date{font-size:13px;color:var(--terracotta);font-weight:700;padding-top:4px;}
+  .episode h3{font-size:19px;font-weight:600;margin-bottom:6px;}
+  .episode .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;}
+  .episode .tags span{font-size:11px;padding:3px 9px;border-radius:999px;border:1px solid var(--line);color:rgba(35,31,26,0.65);}
+  .episode .player-slot{margin-top:14px;display:none;}
+  .episode .player-slot iframe{width:100%;height:120px;border:0;border-radius:8px;}
+  .episode .player-slot.open{display:block;}
+  .episode .listen-link{font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:var(--teal);font-weight:700;}
+  .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;}
+  @media (max-width:720px){
+    .about-grid{grid-template-columns:1fr;}
+    .episode{grid-template-columns:1fr;}
+    .episode .date{padding-top:0;}
+  }
+  .about-grid p{font-size:15px;color:rgba(35,31,26,0.82);}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;}
+  .card h3{font-size:17px;margin-bottom:10px;}
+  .card a.link-row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:14px;}
+  .card a.link-row:last-child{border-bottom:0;}
+  .card a.link-row span.arrow{color:var(--terracotta);}
+  footer{padding:40px 0 60px;text-align:center;font-size:12px;color:rgba(35,31,26,0.55);}
+</style>
+</head>
+<body>
+
+<div class="tilebar">
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Freeform Portland · KFFP</div>
+    <h1>Melting<br><em>Pot</em></h1>
+    <p class="sub">A free-format radio show hosted by Kim Paris — live music, deep cuts, and genre-hopping curation, archived for anyone who missed the broadcast.</p>
+    <div class="schedule-pill"><span class="dot"></span>Every other Sunday, 10am–Noon · Freeform Portland</div>
+  </div>
+</header>
+
+<main>
+  <section class="section wrap" id="listen">
+    <div class="section-head">
+      <h2>Listen now</h2>
+      <span class="count">Latest episode</span>
+    </div>
+    <div class="player-card">
+      <div class="label">"Melting Pot" — Loading...</div>
+      <iframe title="Mixcloud latest episode" src="" allow="autoplay"></iframe>
+    </div>
+  </section>
+
+  <section class="section wrap" id="episodes">
+    <div class="section-head">
+      <h2>Episode archive</h2>
+      <span class="count">114 shows on Mixcloud</span>
+    </div>
+    <div id="episode-list"></div>
+  </section>
+
+  <section class="section wrap" id="about">
+    <div class="section-head">
+      <h2>About the show</h2>
+    </div>
+    <div class="about-grid">
+      <p>Kim Paris is a live music aficionado and archivist based in Portland, Oregon. He's the creator and curator of the <strong>FM Radio Archive</strong> on the Internet Archive, and DJs Melting Pot on Freeform Portland every other Sunday morning. Each episode wanders freely across genres and decades — a true melting pot of sound, stitched together with a community-radio sensibility.</p>
+      <div class="card">
+        <h3>Find the show</h3>
+        <a class="link-row" href="https://www.freeformportland.org/program/melting-pot/" target="_blank" rel="noopener">Freeform Portland program page <span class="arrow">→</span></a>
+        <a class="link-row" href="https://www.mixcloud.com/pariski/" target="_blank" rel="noopener">Full Mixcloud archive (114 shows) <span class="arrow">→</span></a>
+        <a class="link-row" href="https://archive.org/details/fmradioarchive" target="_blank" rel="noopener">FM Radio Archive on archive.org <span class="arrow">→</span></a>
+        <a class="link-row" href="https://spinitron.com/KFFP/dj/180767/Kim-Paris" target="_blank" rel="noopener">Spinitron playlists <span class="arrow">→</span></a>
+        <a class="link-row" href="https://www.instagram.com/fmradioarchive/" target="_blank" rel="noopener">Instagram @fmradioarchive <span class="arrow">→</span></a>
+        <a class="link-row" href="https://www.facebook.com/FMRadioArchive" target="_blank" rel="noopener">Facebook <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Melting Pot with Kim Paris · Freeform Portland (KFFP) — fan site built with episodes streamed from Mixcloud.
+</footer>
+
+<script>
+const list = document.getElementById('episode-list');
+const heroPlayer = document.querySelector('.player-card iframe');
+const heroLabel = document.querySelector('.player-card .label');
+const countEl = document.querySelector('.section-head .count');
+
+let episodeIndex = 0;
+let nextUrl = null;
+let loading = false;
+
+function fmtDate(iso){
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
+}
+
+function renderEpisode(ep){
+  const i = episodeIndex++;
+  const row = document.createElement('div');
+  row.className = 'episode';
+  const tags = (ep.tags || []).slice(0,5).map(t => t.name).filter(Boolean);
+  row.innerHTML = `
+    <div class="date">${fmtDate(ep.created_time)}</div>
+    <div>
+      <h3>${ep.name}</h3>
+      <div class="listen-link">▸ Stream this episode</div>
+      <div class="tags">${tags.map(t=>`<span>${t}</span>`).join('')}</div>
+      <div class="player-slot" id="slot-${i}"></div>
+    </div>
+  `;
+  row.addEventListener('click', () => {
+    const slot = row.querySelector('.player-slot');
+    if (slot.classList.contains('open')) return;
+    document.querySelectorAll('.player-slot.open').forEach(s => { s.classList.remove('open'); s.innerHTML=''; });
+    slot.innerHTML = `<iframe title="Mixcloud ${ep.name}" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=${encodeURIComponent(ep.key)}" allow="autoplay"></iframe>`;
+    slot.classList.add('open');
+  });
+  list.appendChild(row);
+}
+
+function renderLoadMore(){
+  const existing = document.getElementById('load-more-btn');
+  if(existing) existing.remove();
+  if(!nextUrl) return;
+  const btn = document.createElement('div');
+  btn.id = 'load-more-btn';
+  btn.style.cssText = 'text-align:center;padding:32px 0 8px;';
+  btn.innerHTML = `<button onclick="loadMore()" style="font-family:inherit;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:12px 28px;border-radius:999px;border:2px solid #231F1A;background:transparent;cursor:pointer;color:#231F1A;">Load more episodes ↓</button>
+  <div style="margin-top:12px;font-size:12px;color:rgba(35,31,26,0.5);">or <a href="https://www.mixcloud.com/pariski/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700;">browse all on Mixcloud →</a></div>`;
+  list.parentNode.insertBefore(btn, list.nextSibling);
+}
+
+function showError(){
+  list.innerHTML = `<p style="color:rgba(35,31,26,0.6);font-size:14px;">
+    Couldn't load the live episode list right now. Browse the full archive on
+    <a href="https://www.mixcloud.com/pariski/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:700;">Mixcloud</a> instead.
+  </p>`;
+}
+
+function loadMore(){
+  if(!nextUrl || loading) return;
+  loading = true;
+  const btn = document.getElementById('load-more-btn');
+  if(btn) btn.querySelector('button').textContent = 'Loading…';
+  fetch(nextUrl)
+    .then(r => { if(!r.ok) throw new Error(); return r.json(); })
+    .then(data => {
+      (data.data || []).forEach(ep => renderEpisode(ep));
+      nextUrl = data.paging?.next || null;
+      loading = false;
+      renderLoadMore();
+    })
+    .catch(() => { loading = false; });
+}
+
+fetch('https://api.mixcloud.com/pariski/cloudcasts/?limit=12')
+  .then(r => { if(!r.ok) throw new Error('bad response'); return r.json(); })
+  .then(data => {
+    const shows = (data && data.data) || [];
+    if (!shows.length){ showError(); return; }
+    if(data.paging?.next) nextUrl = data.paging.next;
+    const latest = shows[0];
+    heroLabel.textContent = `"Melting Pot" — ${latest.name}`;
+    heroPlayer.src = `https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=${encodeURIComponent(latest.key)}`;
+    list.innerHTML = '';
+    shows.forEach(ep => renderEpisode(ep));
+    renderLoadMore();
+    fetch('https://api.mixcloud.com/pariski/cloudcasts/?limit=1')
+      .then(r => r.json())
+      .then(d => { if(d.paging?.total) countEl.textContent = `${d.paging.total} shows on Mixcloud`; })
+      .catch(()=>{});
+  })
+  .catch(showError);
+</script>
+
+</body>
+</html>
